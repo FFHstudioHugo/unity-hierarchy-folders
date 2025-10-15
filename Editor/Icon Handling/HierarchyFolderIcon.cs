@@ -157,7 +157,6 @@ namespace UnityHierarchyFolders.Editor
         public static void ForceRepaint()
         {
             InitIfNeeded();
-            _hasProcessedFrame = false;
             EditorApplication.RepaintHierarchyWindow();
         }
 
@@ -222,13 +221,10 @@ namespace UnityHierarchyFolders.Editor
                 _openVariants = _closedVariants = null;
             }
 
-            _hasProcessedFrame = false;
         }
 
         private static void RefreshFolderIcons(int instanceid, Rect selectionrect)
         {
-            if (_hasProcessedFrame) return;
-            _hasProcessedFrame = true;
 
             if (meth_getAllSceneHierarchyWindows == null || prop_sceneHierarchy == null)
                 return;
